@@ -151,6 +151,18 @@
                 <quarkus.container-image.tag>${project.version}-native</quarkus.container-image.tag>
             </properties>
         </profile>
+        <profile>
+            <id>jvm</id>
+            <activation>
+                <property>
+                    <name>!native</name>
+                </property>
+            </activation>
+            <properties>
+                <quarkus.jib.base-jvm-image>adoptopenjdk/openjdk11:ubi-minimal</quarkus.jib.base-jvm-image>
+                <quarkus.jib.jvm-entrypoint>java,-jar,/work/quarkus-run.jar</quarkus.jib.jvm-entrypoint>
+            </properties>
+        </profile>
     </profiles>
 
     <repositories>
