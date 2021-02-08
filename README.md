@@ -8,3 +8,8 @@ docker run --rm -ti \
     -e CAMEL_K_ROUTES=file:/etc/camel/sources/routes.yaml \
     lburgazz/camel-k-runtime-example-yaml:1.6.0-native
 ```
+
+```shell script
+kamel kit create --image=quay.io/lburgazzoli/camel-k-runtime-example-yaml:1.6.0-native camel-k-yaml-native
+kamel run --dev --kit=camel-k-yaml-native -t jvm.enabled=false data/routes.yaml 
+```
