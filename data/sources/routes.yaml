@@ -15,13 +15,9 @@
 # limitations under the License.
 #
 - route:
-    from:
-      uri: "timer:tick"
-    parameters:
-      period: "5000"
+    from: 
+      uri: "kamelet:data-gen"
+      parameters:
+        period: "1s"
     steps:
-      - set-body:
-          simple: "${exchangeProperty.CamelTimerName} -> ${exchangeProperty.CamelTimerCounter}"
-      - to:
-          uri: "log:tick"
-
+      - log: "${body}"

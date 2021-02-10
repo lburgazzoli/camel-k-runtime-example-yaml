@@ -83,6 +83,10 @@
             <artifactId>camel-k-loader-yaml</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.camel.k</groupId>
+            <artifactId>camel-k-kamelet</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
             <artifactId>camel-quarkus-log</artifactId>
         </dependency>
@@ -135,9 +139,9 @@
                         <argument>run</argument>
                         <argument>--rm</argument>
                         <argument>-v</argument>
-                        <argument>${project.basedir}/data:/etc/camel/sources:Z</argument>
+                        <argument>${project.basedir}/data:/etc/camel:Z</argument>
                         <argument>-e</argument>
-                        <argument>CAMEL_K_ROUTES=file:/etc/camel/sources/routes.yaml</argument>
+                        <argument>CAMEL_K_CONF=/etc/camel/application.properties</argument>
                         <argument>${quarkus.container-image.group}/${quarkus.container-image.name}:${quarkus.container-image.tag}</argument>
                     </arguments>
                 </configuration>
