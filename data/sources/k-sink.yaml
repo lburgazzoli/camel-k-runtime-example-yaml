@@ -15,15 +15,12 @@
 # limitations under the License.
 #
 
-- route:
-    from: 
-      uri: "kamelet:k-source"
-      parameters:
-        period: "1s"
+- from:
+    uri: kamelet:source
     steps:
       - to: 
-          uri: "kamelet:k-sink"
+          uri: "log:{{logId}}"
           parameters:
-            multiline: true
-            showAll: false
-            logId: "my-log"
+            showAll: "{{showAll:false}}"
+            multiline: "{{multiline:false}}"
+
